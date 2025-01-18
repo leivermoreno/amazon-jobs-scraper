@@ -31,7 +31,7 @@ def check_jobs() -> None:
         browser = playwright.chromium.launch(
             headless=HEADLESS,
             proxy={
-                "server": "https://gate.smartproxy.com:7000",
+                "server": "https://isp.smartproxy.com:10000",
                 "username": f"user-{SP_USER}-country-us",
                 "password": SP_PASSWORD,
             },
