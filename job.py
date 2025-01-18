@@ -11,7 +11,7 @@ def conditional_job():
         job()
 
 
-schedule.every(5).minutes.do(conditional_job)
+schedule.every(5).minutes.do(job)
 
 while True:
     schedule.run_pending()
