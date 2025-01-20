@@ -3,6 +3,10 @@ from amazon import job
 import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
+import os
+
+
+JOB_INTERVAL = int(os.getenv("JOB_INTERVAL"))
 
 
 def conditional_job():
@@ -11,7 +15,7 @@ def conditional_job():
         job()
 
 
-schedule.every(5).minutes.do(job)
+schedule.every(JOB_INTERVAL).minutes.do(job)
 
 while True:
     schedule.run_pending()
