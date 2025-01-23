@@ -15,7 +15,16 @@ def conditional_job():
         job()
 
 
-schedule.every(JOB_INTERVAL).minutes.do(job)
+def retry_job():
+    while True:
+        try:
+            job()
+            break
+        except Exception as e:
+            print(f"Job failed: {e}")
+
+
+schedule.every(JOB_INTERVAL).minutes.do(retry_job)
 
 while True:
     schedule.run_pending()
