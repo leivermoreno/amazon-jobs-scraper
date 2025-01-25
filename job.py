@@ -24,7 +24,7 @@ def retry_job():
             print(f"Job failed: {e}")
 
 
-schedule.every(JOB_INTERVAL).minutes.do(retry_job)
+schedule.every(JOB_INTERVAL).minutes.do(job)
 
 while True:
     schedule.run_pending()
